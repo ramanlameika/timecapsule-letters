@@ -20,9 +20,7 @@ class LetterCreate(BaseModel):
         now = datetime.now(tz=timezone.utc)
         # Ensure the value is timezone-aware for comparison
         if v.tzinfo is None:
-            from datetime import timezone as tz
-
-            v = v.replace(tzinfo=tz.utc)
+            v = v.replace(tzinfo=timezone.utc)
         if v <= now:
             raise ValueError("deliver_at must be a future datetime")
         return v
