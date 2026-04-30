@@ -45,8 +45,6 @@ def _send_via_smtp(to: str, subject: str, body_text: str) -> None:
 
     smtp_cls = smtplib.SMTP_SSL if settings.smtp_tls else smtplib.SMTP
     with smtp_cls(settings.smtp_host, settings.smtp_port) as server:  # type: ignore[operator]
-        if settings.smtp_tls:
-            server.starttls()
         if settings.smtp_user:
             server.login(settings.smtp_user, settings.smtp_password)
         server.sendmail(settings.smtp_from, [to], msg.as_string())

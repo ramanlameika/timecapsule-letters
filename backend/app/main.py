@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 from app.config import settings
 from app.crypto import encrypt_body
 from app.db import get_db
-from app.email import send_email
+from app.mailer import send_email
 from app.models import Letter
 from app.schemas import LetterCreate, LetterCreateResponse, VerifyResponse
 

@@ -37,7 +37,7 @@ def deliver_due_letters(self) -> None:  # type: ignore[override]
     # Import here to avoid circular imports at module load time
     from app.crypto import decrypt_body
     from app.db import SessionLocal
-    from app.email import send_email
+    from app.mailer import send_email
     from app.models import Letter
 
     db = SessionLocal()
